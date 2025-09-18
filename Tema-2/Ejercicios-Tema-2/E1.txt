@@ -1,0 +1,12 @@
+a=>True
+b=>True
+c=>True
+d=>True
+e=>True
+f=>False
+g=>False
+h=>False
+i=>False
+j=>True
+k=>False
+
