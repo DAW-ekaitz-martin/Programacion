@@ -31,9 +31,8 @@ public class E15 {
             }
             else if (y == 0) {
                 System.out.println("Las coordenadas se encuentran en el eje y");
-            }
-            
+            } 
         }
-
+        scanner.close();
     }
 }

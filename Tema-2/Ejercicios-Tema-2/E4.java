@@ -10,6 +10,7 @@ public class E4 {
         if (anio % 4 == 0) {
             if (anio % 100 == 0 && anio % 400 != 0) {
                 System.out.print("El año " + anio + " NO es bisiesto");
+                scanner.close();
                 return;
             }
             System.out.print("El año " + anio + " SI es bisiesto");

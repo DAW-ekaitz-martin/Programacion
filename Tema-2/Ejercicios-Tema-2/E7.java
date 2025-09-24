@@ -19,9 +19,13 @@ public class E7 {
         if (discriminante >= 0) {
             double resultado_1 = Math.sqrt(x);
             double resultado_2 = x * x;
+            System.out.println("Resultado 1: " + resultado_1 + ", Resultado 2: " + resultado_2);
+
         }
         else {
             System.out.println("Error");
         }
+
+        scanner.close();
     }
 }
