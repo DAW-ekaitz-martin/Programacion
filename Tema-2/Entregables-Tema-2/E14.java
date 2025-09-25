@@ -16,7 +16,10 @@ public class E14 {
         if (!password.matches(".*[1-9]*.")) {
             System.out.println("La contraseña debe contener al menos un número");
         }
-        if (!password.contains(".*['@', '#', '$', '%', '&', '*']*.")) {
+        // if (!password.matches(".*@.*") && !password.matches(".*#.*") && !password.matches(".*$.*") && !password.matches(".*%.*") && !password.matches(".*&.*") && !password.matches(".*'*'.*")) {
+        //     System.out.println("La contraseña debe contener al menos un carácter especial");
+        // }
+        if (!password.matches(".*[@#$%&*].*")){
             System.out.println("La contraseña debe contener al menos un carácter especial");
         }
         else {
