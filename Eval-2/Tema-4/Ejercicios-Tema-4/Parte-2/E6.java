@@ -7,5 +7,9 @@ public class E6 {
         System.out.print("Ingrese un número: ");
         int n = scanner.nextInt();
 
+        System.out.print("Ingrese otro número: ");
+        int n2 = scanner.nextInt();
+
+
     }
 }
