@@ -2,15 +2,7 @@ public class E4 {
     public static void main(String[] args) {
         int[] n = {1,2,3,4,5,6,7,8,9,10};
         int n2 = suma_impar(n.clone());
-        for (int i = 0; i <= (n.length-1); i++) {
-            System.out.print(n[i]);
-            if (i <= n.length-1) {
-                System.out.print(", ");
-            }
-            else {
-                System.out.println();
-            }
-        }
+        System.out.println("EL resultado de la suma es: "+ n2);
     }
     public static int suma_impar(int[] n) {
         int suma = 0;
