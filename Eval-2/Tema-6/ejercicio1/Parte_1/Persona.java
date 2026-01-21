@@ -1,3 +1,4 @@
+package Parte_1;
 public class Persona {
     String nombre;
     int edad;
@@ -7,7 +8,7 @@ public class Persona {
     }
     void mostrarInformacion() {
         System.out.println("Nombre: " + this.nombre);
-        System.out.println("Edad: " + this.edad);
+        System.out.println("Edad: " + this.edad); System.out.println("Dirección: " + this.direccion);
     }
     boolean esMayorDeEdad() {
         if(this.edad >= 18)
