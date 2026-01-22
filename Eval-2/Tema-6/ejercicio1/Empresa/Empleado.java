@@ -8,6 +8,19 @@ public class Empleado {
         this.salario = salario;
     }
     public String getNombre() {
-        return 
+        return this.nombre;
+    }
+    public double getSalario() {
+        return this.salario;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public void getSalario(double salario) {
+        this.salario = salario;
+    }
+    @Override
+    public String toString() {
+        return "Nombre: " + this.nombre + ", Salario: " + this.salario; 
     }
 }
