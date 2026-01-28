@@ -8,7 +8,15 @@ public class Libro {
         this.autor = autor;
         this.disponible = disponible;
     }
-    public void altaLibros(Libro[] array_libros, Libro libro_a_aniadir, int posicion) {
-        array_libros[posicion] = libro_a_aniadir;
+    public boolean getDisponible() {
+        return this.disponible;
+    }
+    public boolean setDisponible() {
+        return !this.disponible;
+    }
+    @Override
+    public String toString() {
+        return "Titulo del libro: " + this.titulo + ", autor: " + this.autor + ", isbn: " + this.isbn + ", Disponible: " + this.disponible;
     }
 }
+
