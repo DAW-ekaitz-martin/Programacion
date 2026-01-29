@@ -1,7 +1,7 @@
 package Prestamo;
 import  Libro.Libro;
 public class Prestamo {
-    Libro libro;
+    public Libro libro;
     String estado;
     int codigo_prestamo, numero_dias;
     public Prestamo(Libro libro, int codigo_prestamo, String estado, int numero_dias) {

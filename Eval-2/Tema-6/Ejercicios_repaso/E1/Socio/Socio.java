@@ -10,20 +10,17 @@ public class Socio {
     }
     public void aniadirPrestamo(Prestamo prestamo) {
         this.prestamos[this.num_prestamos] = prestamo;
+        this.prestamos[this.num_prestamos].libro.setDisponible();
         this.num_prestamos ++;
     }
     public void devolverPrestamo(int codigo_prestamo) {
         //Quitar prestamo
-        // Pasar los libros a la izquierda
-        //Restar 1 a la cantidad de prestamos
         //Volvera poner el prestamo disponible
         for (int i = 0; i < this.num_prestamos; i++) {
             if (this.prestamos[i].getCodigoPrestamo() == codigo_prestamo) {
-                this.prestamos[i] = null;
-                for (int k = i; k < this.num_prestamos - 1; i++) {
-                    this.prestamos[k] = this.prestamos[k +1];
-                }
-                this.num_prestamos --;
+                System.out.println("Prueba A" + this.prestamos[i].libro);
+                this.prestamos[i].libro.setDisponible();
+                System.out.println("PRUEBA B:   " + this.prestamos[i].libro);
             }
             else {
                 System.out.println("No se encontró ningún prestamo que contiene ese libro");

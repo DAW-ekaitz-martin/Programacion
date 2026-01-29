@@ -1,18 +1,23 @@
 package Libro;
 public class Libro {
     String isbn, titulo, autor;
-    boolean disponible;
-    public Libro(String isbn, String titulo, String autor, boolean disponible) {
+    boolean disponible = true;
+    public Libro(String isbn, String titulo, String autor) {
         this.isbn = isbn;
         this.titulo = titulo;
         this.autor = autor;
-        this.disponible = disponible;
     }
     public boolean getDisponible() {
         return this.disponible;
     }
     public boolean setDisponible() {
-        return !this.disponible;
+        if (this.disponible) {
+            this.disponible = false;
+        }
+        else {
+            this.disponible = true;
+        }
+        return this.disponible;
     }
     @Override
     public String toString() {

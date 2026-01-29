@@ -19,4 +19,11 @@ public class Biblioteca {
             }
         }
     }
+    public void mostrarNoDisponibles() {
+        for (int i = 0; i < this.cant_libros; i++) {
+            if (!this.libros[i].getDisponible()) {
+                System.out.println(this.libros[i]);
+            }
+        }
+    }
 }
