@@ -19,6 +19,9 @@ public class Prestamo {
     public void setEstadoActivo() {
         this.estado = "activo";
     }
+    public String getEstado() {
+        return this.estado;
+    }
     @Override
     public String toString() {
         return this.libro + ", estado: " + this.estado + ", código: " + this.codigo_prestamo + ", numero de dias: " + this.numero_dias;

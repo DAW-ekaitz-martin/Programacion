@@ -2,7 +2,7 @@ package Instituto;
 
 public class Matricula {
     Asignatura asignatura = new Asignatura(null, 0, 0);
-    int nota = 1;
+    int nota = -1;
     public Matricula(Asignatura asignatura, int nota) {
         this.asignatura = asignatura;
         this.nota = nota;

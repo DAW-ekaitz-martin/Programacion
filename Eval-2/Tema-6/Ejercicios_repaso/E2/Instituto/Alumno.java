@@ -15,8 +15,14 @@ public class Alumno {
                 return;
             }
         }
-        this.matriculas[this.cant_matriculas] = matricula;
-        this.cant_matriculas ++;
+        if((matricula.nota < 0 && matricula.nota != -1) || matricula.nota > 10) {
+            System.out.println("La nota de la Asignatura no es válida, no se ha podido realizar la matriculación");
+        }
+        else {
+            this.matriculas[this.cant_matriculas] = matricula;
+            this.cant_matriculas ++;
+        }
+        
     }
     @Override
     public String toString() {
@@ -29,17 +35,19 @@ public class Alumno {
     }
     public double mediaAlumno() {
         int suma_de_notas = 0;
+        int cantidad_de_asignaturas_a_evaluar = 0; //Ya que si hay alguna asignatura sin evaluar no puedo dividir la suma de las notas por la longitud del array de matrículas, necesito saber exactamente cuantas asignaturas se tendrán en cuenta para la media
         for (int i = 0; i < this.cant_matriculas; i++) {
-            if(this.matriculas[i].nota != 1) {//Porque las que tengan una nota de 1 se consideran no evaluadas
+            if(this.matriculas[i].nota != -1) {//Porque las que tengan una nota de -1 se consideran no evaluadas
                 suma_de_notas += this.matriculas[i].nota;
+                cantidad_de_asignaturas_a_evaluar ++;
             }
         }
-        return (double) suma_de_notas / this.cant_matriculas;
+        return (double) suma_de_notas / cantidad_de_asignaturas_a_evaluar;
     }
     public void alumnosNoEvaluados() {
         boolean sin_evaluar = false;
         for (int i = 0; i < this.cant_matriculas; i++) {
-            if(this.matriculas[i].nota == 1) {//Porque las que tengan una nota de 1 se consideran no evaluadas
+            if(this.matriculas[i].nota == -1) {//Porque las que tengan una nota de 1 se consideran no evaluadas
                 sin_evaluar = true;
             }
         }

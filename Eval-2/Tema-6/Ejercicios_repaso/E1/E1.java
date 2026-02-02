@@ -20,19 +20,23 @@ public class E1 {
         if(otro_libro.getDisponible()) {
             yo.aniadirPrestamo(prestamo_2);
         }
-        System.out.println(prestamo_1.getCodigoPrestamo());
         //Mostrar todos los prestamos de un socio.
         System.out.println("MIS PRÉSTAMOS");
         yo.getPrestamos();
         //Devolver libros
-        System.out.println("PRUEBA C:   " + prestamo_1.libro);
+        //System.out.println("PRUEBA C:   " + prestamo_1.libro);
         yo.devolverPrestamo(prestamo_1.getCodigoPrestamo());
         //mi_libro.setDisponible();
         prestamo_1.setEstadoDevuelto();
         //Listar libros disponibles
         System.out.println("LIBROS DISPONIBLES");
         mi_biblioteca.mostrarDisponibles();
-        System.out.println("LIBROS NO DISPONIBLES");
+        System.out.println("LIBROS NO DISPONIBLES(PRESTADOS)");
         mi_biblioteca.mostrarNoDisponibles();
+        System.out.println("PRESTAMOS ACTIVOS");
+        yo.getPrestamosActivos();
+        System.out.println("HISTORIAL DE PRÉSTAMOS");
+        yo.getPrestamos();
+        
     }
 }

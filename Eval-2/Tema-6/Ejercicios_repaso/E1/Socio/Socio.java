@@ -18,9 +18,9 @@ public class Socio {
         //Volvera poner el prestamo disponible
         for (int i = 0; i < this.num_prestamos; i++) {
             if (this.prestamos[i].getCodigoPrestamo() == codigo_prestamo) {
-                System.out.println("Prueba A" + this.prestamos[i].libro);
+                //System.out.println("Prueba A" + this.prestamos[i].libro);
                 this.prestamos[i].libro.setDisponible();
-                System.out.println("PRUEBA B:   " + this.prestamos[i].libro);
+                //System.out.println("PRUEBA B:   " + this.prestamos[i].libro);
             }
             else {
                 System.out.println("No se encontró ningún prestamo que contiene ese libro");
@@ -33,6 +33,13 @@ public class Socio {
     public void getPrestamos() {
         for (int i = 0; i < this.num_prestamos; i++) {
             System.out.println(this.prestamos[i]);
+        }
+    }
+    public void getPrestamosActivos() {
+        for (int i = 0; i < this.num_prestamos; i++) {
+            if(prestamos[i].getEstado().equals("activo")) {
+                System.out.println(prestamos[i]);
+            }
         }
     }
     @Override
