@@ -4,6 +4,8 @@ import Animal.Perro;
 import Animal.Pez;
 public class E2 {
     public static void main(String[] args) {
+        //Animal mi_animal = new Animal("Ekaitz", 22); => No se pueden instancias clases abstractas, pero si crear un array Animal[], ya que estará compuesto de objetos Perro, Gato... No de objetos animal.
+        
         Perro toby = new Perro("Toby", 7, "husky", true);
         Perro Jack_Sperrow = new Perro("Jack Sperrow");
         Pez nemo = new Pez("Nemo", "salada", 5);

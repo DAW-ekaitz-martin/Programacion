@@ -3,9 +3,9 @@ import java.util.Scanner;
 public class E3 {
     public static void main(String[] args) {
         boolean finalizar = false;
+        int[] array = new int[10];
         do {
             try {
-                int[] array = new int[10];
                 Scanner scanner = new Scanner(System.in);
                 System.out.println("ELIJA LA OPCIÓN QUE DESEA REALIZAR: ");
                 System.out.println("1-Registrar puntos en una posición concreta");
@@ -20,21 +20,31 @@ public class E3 {
                 if (input == 1) {
                     System.out.println("Ingrese el número de la jugada (1-10): ");
                     int numero_de_jugada = scanner.nextInt();
+                    System.out.println("NUMERO DE JUGADA=> " + numero_de_jugada);
                     if (numero_de_jugada < 1 || numero_de_jugada > 10) {
                         throw new NumberFormatException ("No existe ese número de jugada.");
                     }
                     else {
                         System.out.print("Ingrese los puntos anotados en la jugada numero " + numero_de_jugada + ": ");
                         int puntuacion = scanner.nextInt();
-                        array[numero_de_jugada-1] = puntuacion;
+                        System.out.println("PUNTUACION=> " + puntuacion);
+                        array[numero_de_jugada - 1] = puntuacion;
                     }
                 }
-                if (input == 2) {
-                    for (int i = 0; i < array.length-1; i++) {
+                else if (input == 2) {
+                    for (int i = 0; i <= array.length-1; i++) {
                         System.out.println(array[i]);
                     }
                 }
+                else if (input == 3) {
+                    int total = 0;
+                    for (int i = 0; i <= array.length-1; i++) {
+                        total += array[i];
+                    }
+                    System.out.println("La puntuación total es de: " + total + " puntos");
+                }
                 else if (input == 4) {
+                    System.out.println("Programa finalizado");
                     finalizar = true;
                 }
             } catch (NumberFormatException e) {
