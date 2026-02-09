@@ -1,6 +1,6 @@
 package Animal;
 
-public class Perro extends Animal {
+public class Perro extends Mamifero {
     String raza;
     boolean esEntrenado;
     public Perro(String nombre, int edad, String raza, boolean esEntrenado) {
@@ -30,5 +30,15 @@ public class Perro extends Animal {
             System.out.println("El perro NO ha sido entrenado");
         }
         
+    }
+    //Ejercicio 15
+    @Override
+    public void amamantar() {
+        System.out.println("El perro está siendo amamantado");
+    }
+    // Ejercicio 17
+    @Override
+    public void desplazarse() {
+        System.out.println("El perro se desplaza");
     }
 }

@@ -4,6 +4,8 @@ import Animal.Perro;
 import Animal.Pez;
 public class E2 {
     public static void main(String[] args) {
+        //Animal mi_animal = new Animal("Ekaitz", 22); => No se pueden instancias clases abstractas, pero si crear un array Animal[], ya que estará compuesto de objetos Perro, Gato... No de objetos animal.
+        
         Perro toby = new Perro("Toby", 7, "husky", true);
         Perro Jack_Sperrow = new Perro("Jack Sperrow");
         Pez nemo = new Pez("Nemo", "salada", 5);
@@ -42,5 +44,24 @@ public class E2 {
         System.out.println("MOSTRAR INFORMACIÓN DEL PEZ");
         System.out.println(nemo.mostrarInformacion());
         nemo.nadar();
+        //12
+        System.out.println("RECORRER EL BUCLE PARA MOSTRAR LA INFORMACIÓN DE LOS ANIMALES DEL ARRAY");
+        animales[2] = nemo;
+        for (int i = 0; i < 3; i++) {
+            System.out.println(animales[i].mostrarInformacion());
+        }
+        //13
+        System.out.println("FUNCIONES DE NADAR, LADRAR Y MAULLAR");
+        toby.ladrar();
+        garfield.maullar();
+        nemo.nadar();
+        //14
+        System.out.println("METODO AMAMANTAR DE GATO Y PERRO");
+        toby.amamantar();
+        garfield.amamantar();
+        //E17
+        System.out.println("METODO DESPLAZARSE DE GATO Y PERRO");
+        toby.desplazarse();
+        garfield.desplazarse();
     }
 }

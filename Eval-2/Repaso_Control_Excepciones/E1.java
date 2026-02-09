@@ -20,6 +20,7 @@ public class E1 {
                 }
                 entradas_correctas = true;
             }
+            
             catch (InputMismatchException e) {
                 System.out.println(e.getMessage());
             }
