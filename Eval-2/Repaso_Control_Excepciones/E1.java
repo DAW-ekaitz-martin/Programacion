@@ -8,17 +8,28 @@ public class E1 {
                 Scanner scanner = new Scanner(System.in);
                 
                 System.out.print("Ingrese el número de entradas de adulto: ");
-                int entradas_adulto = scanner.nextInt();
-                System.out.print("Ingrese el número de entradas de niño: ");
-                int entradas_ninio = scanner.nextInt();
-                if (entradas_adulto < 0 || entradas_ninio < 0) {
-                    throw new InputMismatchException("El tipo de dato ingresado no puede ser negativo");
+                String entradas_adulto_str = scanner.nextLine();
+                int entradas_adulto = Integer.parseInt(entradas_adulto_str);
+                if (entradas_adulto < 0) {
+                    throw new InputMismatchException("El número ingresado no puede ser negativo");
                 }
-                
+                System.out.print("Ingrese el número de entradas de niño: ");
+                String entradas_ninio_str = scanner.nextLine();
+                int entradas_ninio = Integer.parseInt(entradas_ninio_str);
+                if (entradas_ninio < 0) {
+                    throw new InputMismatchException("El número ingresado no puede ser negativo");
+                }
+                entradas_correctas = true;
             }
             
             catch (InputMismatchException e) {
                 System.out.println(e.getMessage());
+            }
+            catch (NumberFormatException e) {
+                System.out.println("El valor introducido no es un número entero, operación rechazada...");
+            }
+            finally{
+                System.out.println("Validación realizada");
             }
         }
         while(!entradas_correctas);
