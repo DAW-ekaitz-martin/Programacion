@@ -1,7 +1,7 @@
 package universidad;
 
-public class Examen  extends Evaluacion{
-    public Examen(String nombreAlumno) {
+public class Tarea extends Evaluacion{
+    public Tarea(String nombreAlumno) {
         super(nombreAlumno);
     }
     @Override
@@ -12,6 +12,8 @@ public class Examen  extends Evaluacion{
             total += this.nota[i];
         }
         promedio = total / this.nota.length;
+        double suma_adicional = promedio * 0.10;
+        promedio += suma_adicional;
         return promedio;
     }
     @Override

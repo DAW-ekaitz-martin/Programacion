@@ -6,6 +6,7 @@ public class E1 {
         do {
             try {
                 Scanner scanner = new Scanner(System.in);
+                
                 System.out.print("Ingrese el número de entradas de adulto: ");
                 int entradas_adulto = scanner.nextInt();
                 System.out.print("Ingrese el número de entradas de niño: ");
