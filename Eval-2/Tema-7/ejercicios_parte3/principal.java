@@ -1,6 +1,7 @@
 
 import hospital.*;
 import transporte_publico.*;
+import mini_simulador.*;
 
 public class principal {
     public static void main(String[] args) {
@@ -115,6 +116,14 @@ public class principal {
         
         System.out.println("BUSCAR VIAJES");
         buscarViaje(5, transportes);
+
+        //E3
+        Personaje[] personajes = new Personaje[6];
+        Guerrero g_1 = new Guerrero("Obelix", 200, 50, 50);
+        Guerrero g_2 = new Guerrero("Maximo Decimo", 250, 60, 40);
+        Mago m_1 = new Mago("Rey Hielo", 100, 20, 
+            
+        )
     }
     public static void buscarViaje(int numero_viaje, TituloTransporte[] transportes) {
         boolean encontrado = false;
