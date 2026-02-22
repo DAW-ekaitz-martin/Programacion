@@ -15,4 +15,8 @@ public class Mago extends Personaje{
         System.out.println("No hay mana suficiente, no se ha podido ejecutar el ataque");
         return 0;
     }
+    @Override
+    public String toString() {
+        return super.toString() + ", Mana: " + this.mana;
+    }
 }

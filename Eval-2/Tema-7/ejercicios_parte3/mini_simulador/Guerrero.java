@@ -19,4 +19,8 @@ public class Guerrero extends Personaje{
             this.vida = 0;
         }
     }
+    @Override
+    public String toString() {
+        return super.toString() + ", Armadura: " + this.armadura;
+    }
 }

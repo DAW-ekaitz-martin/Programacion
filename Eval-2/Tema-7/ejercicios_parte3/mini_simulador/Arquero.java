@@ -8,9 +8,14 @@ public class Arquero extends Personaje{
     public int calcularDanio() {
         int precision = 1 +(int)(Math.random() * 100);
         if (precision <= 10) {//Se considera como fallo
+            System.out.println("El arquero " + this.nombre + " ha fallado el tiro");
             return  0;
         }
         //Si es mayor a 10 le sumo la precisión al daño como bonus.
         return this.ataque_base + precision;
+    }
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

@@ -15,13 +15,16 @@ public abstract class Personaje{
             this.vida = 0;
         }
     }
-    public void estaVivo() {
+    public boolean estaVivo() {
         if (this.vida >= 1) {
-            System.out.println("Está vivo");
+            //System.out.println("Está vivo");
+            return true;
         }
-        else {
-            
-            System.out.println("Está muerto");
-        }
+        //System.out.println("Está muerto");
+        return false;
+    }
+    @Override
+    public String toString() {
+        return "Nombre: " + this.nombre + ", Vida: " + this.vida + ", Ataque base:" + this.ataque_base;
     }
 }

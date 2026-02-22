@@ -2,6 +2,7 @@
 import hospital.*;
 import transporte_publico.*;
 import mini_simulador.*;
+import fabrica.*;
 
 public class principal {
     public static void main(String[] args) {
@@ -120,11 +121,105 @@ public class principal {
         //E3
         Personaje[] personajes = new Personaje[6];
         Guerrero g_1 = new Guerrero("Obelix", 200, 50, 50);
-        Guerrero g_2 = new Guerrero("Maximo Decimo", 250, 60, 40);
-        Mago m_1 = new Mago("Rey Hielo", 100, 20, 
-            
-        )
+        Guerrero g_2 = new Guerrero("Maximo Decimo", 250, 90, 40);
+        Mago m_1 = new Mago("Rey Hielo", 100, 50, 100);
+        Mago m_2 = new Mago("Mago Eléctrico", 100, 50, 100);
+        Arquero a_1 = new Arquero("Legolas", 150, 75);
+        Arquero a_2 = new Arquero("Salogel", 150, 75);
+        personajes[0] = g_1;
+        personajes[1] = g_2;
+        personajes[2] = m_1;
+        personajes[3] = m_2;
+        personajes[4] = a_1;
+        personajes[5] = a_2;
+        for (int i = 0; i <= personajes.length-2; i ++) {
+            if (personajes[i].estaVivo()) {
+                //Calculo el daño que el personaje de la posición en la que me encuentro le va a causar al que está en la siguiente posición.
+                int danio_a_causar = personajes[i].calcularDanio();
+                //Le causo el daño previamente calculado al siguiente del array.
+                personajes[i+1].recibirDanio(danio_a_causar);
+            }
+        }
+        //Ahora el personaje que se encuentre en la última posición le debe de causar el daño al que está en la primera posición del array.
+        if (personajes[personajes.length-1].estaVivo()) {
+            int danio =  personajes[personajes.length-1].calcularDanio();
+            personajes[0].recibirDanio(danio);
+        }
+        System.out.println("ESTADO DE LOS PERSONAJES DESPUÉS DEL ATAQUE");
+        for (int i = 0; i <= personajes.length-1; i++) {
+            System.out.println(personajes[i].toString());
+        }
+        System.out.println("PERSONAJES QUE SIGUEN VIVOS");
+        for (int i = 0; i <= personajes.length-1; i++) {
+            if (personajes[i].estaVivo())
+                System.out.println(personajes[i].toString());
+        }
+
+        //E4
+        Sensor[] sensores = new Sensor[9];
+        double[] lectura_st_1 = {1.3,57.8,24.8,42.9,98.1,2.3,5.4};
+        double[] lectura_st_2 = {1.3,57.8,24.8,2.9,8.1,2.3,5.4};
+        double[] lectura_st_3 = {1.3,57.8,24.8,2.9,8.1,2.3,5.4};
+
+        double[] lectura_sp_1 = {6.3,52.8,24.8,8.9,8.1,8.3,5.4};
+        double[] lectura_sp_2 = {1.3,57.8,24.8,2.9,8.1,2.3,5.4};
+        double[] lectura_sp_3 = {1.3,57.8,24.8,2.9,8.1,2.3,5.4};
+
+        double[] lectura_sh_1 = {1.3,57.8,47.8,2.9,8.1,2.3,5.4};
+        double[] lectura_sh_2 = {1.3,57.8,24.8,2.9,8.1,2.3,5.4};
+        double[] lectura_sh_3 = {1.3,57.8,24.8,2.9,8.1,2.3,5.4};
+
+        SensorTemperatura st_1 = new SensorTemperatura(1, "Z1", lectura_st_1, "Temperatura");
+        SensorTemperatura st_2 = new SensorTemperatura(2, "Z2", lectura_st_2, "Temperatura");
+        SensorTemperatura st_3 = new SensorTemperatura(3, "Z3", lectura_st_3, "Temperatura");
+        SensorPresion sp_1 = new SensorPresion(4, "Z1", lectura_sp_1, "Presión");
+        SensorPresion sp_2 = new SensorPresion(5, "Z2", lectura_sp_2, "Presión");
+        SensorPresion sp_3 = new SensorPresion(6, "Z3", lectura_sp_3, "Presión");
+        SensorHumo sh_1 = new SensorHumo(7, "Z1", lectura_sh_1, "Humo");
+        SensorHumo sh_2 = new SensorHumo(8, "Z2", lectura_sh_2, "Humo");
+        SensorHumo sh_3 = new SensorHumo(9, "Z3", lectura_sh_3, "Humo");
+        sensores[0] = st_1;
+        sensores[1] = st_2;
+        sensores[2] = st_3;
+        sensores[3] = sp_1;
+        sensores[4] = sp_2;
+        sensores[5] = sp_3;
+        sensores[6] = sh_1;
+        sensores[7] = sh_2;
+        sensores[8] = sh_3;
+        System.out.println("INFORMACIÓN SOBRE LOS SENSORES: ");
+        for (int i = 0; i<= sensores.length-1; i++) {
+            System.out.println(sensores[i].toString());
+        }
+        System.out.println("NUMERO DE SENSORES EN PELIGRO: " + contadorDePeligro(sensores));
+        System.out.println("BUSCAR SENSOR POR ID");
+        buscarId(sensores, 3);
+        buscarId(sensores, -1);
+        
     }
+    public static void buscarId (Sensor[] sensores, int id_a_buscar) {
+        boolean encontrado = false;
+        for (int i = 0; i<= sensores.length-1; i++) {
+            if(sensores[i].getId() == id_a_buscar) {
+                System.out.println(sensores[i].toString());
+                encontrado = true;
+            }
+        }
+        if(!encontrado) {
+            System.out.println("No se ha encontrado ningún sensor con id " + id_a_buscar);
+        }
+    }
+
+    public static int contadorDePeligro(Sensor[] sensores) {
+        int cont = 0;
+        for (int i = 0; i<= sensores.length-1; i++) {
+            if(sensores[i].obtenerAlarma().equals("PELIGRO")) {
+                cont ++;
+            }
+        }
+        return cont;
+    }
+
     public static void buscarViaje(int numero_viaje, TituloTransporte[] transportes) {
         boolean encontrado = false;
         for (int i = 0; i <= 8; i++) {
