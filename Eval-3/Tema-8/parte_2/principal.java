@@ -1,10 +1,14 @@
 import almacen.*;
 import hospital.*;
+import instituto.*;
+
 import java.util.Arrays;
 import museo.*;
 import plataforma.*;
 import tienda.*;
 import zoo.*;
+import gym.*;
+import parking.*;
 public class principal {
     public static void main(String[] args) {
         //E1
@@ -236,6 +240,400 @@ public class principal {
         System.out.println("MENU ANIMALES : ");
         imprimirMenu(animales);
 
+        //E7
+
+        Medible[] registro = new Medible[25];
+        GrasaCorporal g1 = new GrasaCorporal(5, "kg");
+        GrasaCorporal g2 = new GrasaCorporal(8,  "kg");
+        GrasaCorporal g3 = new GrasaCorporal(12, "kg");
+        GrasaCorporal g4 = new GrasaCorporal(15, "kg");
+        GrasaCorporal g5 = new GrasaCorporal(20, "kg");
+        GrasaCorporal g6 = new GrasaCorporal(7,  "kg");
+        GrasaCorporal g7 = new GrasaCorporal(10, "kg");
+        PesoKg ps1 = new PesoKg(92, "kg");
+        PesoKg ps2 = new PesoKg(75,  "kg");
+        PesoKg ps3 = new PesoKg(110, "kg");
+        PesoKg ps4 = new PesoKg(68,  "kg");
+        PesoKg ps5 = new PesoKg(85,  "kg");
+        PesoKg ps6 = new PesoKg(95,  "kg");
+        PesoKg ps7 = new PesoKg(57,  "kg");
+        Repeticiones rp1 = new Repeticiones(12, "kg");
+        Repeticiones rp2 = new Repeticiones(8,  "reps");
+        Repeticiones rp3 = new Repeticiones(15, "reps");
+        Repeticiones rp4 = new Repeticiones(6,  "reps");
+        Repeticiones rp5 = new Repeticiones(20, "reps");
+        Repeticiones rp6 = new Repeticiones(10, "reps");
+        Repeticiones rp7 = new Repeticiones(5,  "reps");
+        TiempoMin t1 = new TiempoMin(45, "minutos");
+        TiempoMin t2 = new TiempoMin(30, "minutos");
+        TiempoMin t3 = new TiempoMin(60, "minutos");
+        TiempoMin t4 = new TiempoMin(90, "minutos");
+
+        registro[0] = g1;
+        registro[1] = g2;
+        registro[2] = g3;
+        registro[3] = g4;
+        registro[4] = g5;
+        registro[5] = g6;
+        registro[6] = g7;
+        registro[7] = ps1;
+        registro[8] = ps2;
+        registro[9] = ps3;
+        registro[10] = ps4;
+        registro[11] = ps5;
+        registro[12] = ps6;
+        registro[13] = ps7;
+        registro[14] = rp1;
+        registro[15] = rp2;
+        registro[16] = rp3;
+        registro[17] = rp4;
+        registro[18] = rp5;
+        registro[19] = rp6;
+        registro[20] = rp7;
+        registro[21] = t1;
+        registro[22] = t2;
+        registro[23] = t3;
+        registro[24] = t4;
+
+        Medible mayor = maximo(registro);
+        System.out.println("LA MEDICIÓN CON MAYOR VALOR: " + mayor.valor() + mayor.unidad());
+        System.out.println("LA MEDIA DEL TODOS LOS REGISTROS DE TIEMPO MÍMINO ES: " + mediaTiempoMin(registro) + " minutos");
+        System.out.println("LA CANTIDAD DE VECES QUE SE REPITE LA UNIDAD 'Kg' ES: " + contarUnidad(registro, "kg"));
+
+        //E8
+        Pagable[] vehiculos = new Pagable[50];
+        int[] horas = {1,2,3,4,5,6,7,8,9,45,5,7,4,2,8,4,6,7,8,59,2,6,4,5,7,3,4,9,2,6,3,8,4,5,6,9,4,2,5,8,5,3,9,5,7,3,2,5,6,4};
+        Coche c1 = new Coche("Coche", 3.42);
+        Coche c2  = new Coche("Coche", 4.10);
+        Coche c3  = new Coche("Coche", 5.75);
+        Coche c4  = new Coche("Coche", 6.30);
+        Coche c5  = new Coche("Coche", 7.00);
+        Coche c6  = new Coche("Coche", 4.85);
+        Coche c7  = new Coche("Coche", 8.20);
+        Coche c8  = new Coche("Coche", 3.90);
+        Coche c9  = new Coche("Coche", 6.55);
+        Coche c10 = new Coche("Coche", 5.10);
+        Coche c11 = new Coche("Coche", 9.00);
+        Coche c12 = new Coche("Coche", 4.40);
+        Coche c13 = new Coche("Coche", 7.65);
+        Coche c14 = new Coche("Coche", 3.15);
+        Coche c15 = new Coche("Coche", 5.50);
+        Coche c16 = new Coche("Coche", 6.80);
+        Coche c17 = new Coche("Coche", 4.25);
+        Coche c18 = new Coche("Coche", 8.90);
+        Coche c19 = new Coche("Coche", 3.70);
+        Coche c20 = new Coche("Coche", 7.35);
+
+        Moto m1 = new Moto("Moto", 1.42);
+        Moto m2  = new Moto("Moto", 2.10);
+        Moto m3  = new Moto("Moto", 3.00);
+        Moto m4  = new Moto("Moto", 1.85);
+        Moto m5  = new Moto("Moto", 2.60);
+        Moto m6  = new Moto("Moto", 3.45);
+        Moto m7  = new Moto("Moto", 1.70);
+        Moto m8  = new Moto("Moto", 2.30);
+        Moto m9  = new Moto("Moto", 4.00);
+        Moto m10 = new Moto("Moto", 1.55);
+        Moto m11 = new Moto("Moto", 3.20);
+        Moto m12 = new Moto("Moto", 2.80);
+        Moto m13 = new Moto("Moto", 1.95);
+        Moto m14 = new Moto("Moto", 3.60);
+        Moto m15 = new Moto("Moto", 2.45);
+        Moto m16 = new Moto("Moto", 1.30);
+        Moto m17 = new Moto("Moto", 4.15);
+        Moto m18 = new Moto("Moto", 2.05);
+        Moto m19 = new Moto("Moto", 3.75);
+        Moto m20 = new Moto("Moto", 1.60);
+
+        Furgoneta fu1 = new Furgoneta("Furgoneta", 5);
+        Furgoneta fu2  = new Furgoneta("Furgoneta", 7);
+        Furgoneta fu3  = new Furgoneta("Furgoneta", 9);
+        Furgoneta fu4  = new Furgoneta("Furgoneta", 6);
+        Furgoneta fu5  = new Furgoneta("Furgoneta", 11);
+        Furgoneta fu6  = new Furgoneta("Furgoneta", 8);
+        Furgoneta fu7  = new Furgoneta("Furgoneta", 13);
+        Furgoneta fu8  = new Furgoneta("Furgoneta", 10);
+        Furgoneta fu9  = new Furgoneta("Furgoneta", 14);
+        Furgoneta fu10 = new Furgoneta("Furgoneta", 12);
+
+        vehiculos[0]  = c1;
+        vehiculos[1]  = c2;
+        vehiculos[2]  = c3;
+        vehiculos[3]  = c4;
+        vehiculos[4]  = c5;
+        vehiculos[5]  = c6;
+        vehiculos[6]  = c7;
+        vehiculos[7]  = c8;
+        vehiculos[8]  = c9;
+        vehiculos[9]  = c10;
+        vehiculos[10] = c11;
+        vehiculos[11] = c12;
+        vehiculos[12] = c13;
+        vehiculos[13] = c14;
+        vehiculos[14] = c15;
+        vehiculos[15] = c16;
+        vehiculos[16] = c17;
+        vehiculos[17] = c18;
+        vehiculos[18] = c19;
+        vehiculos[19] = c20;
+        vehiculos[20] = m1;
+        vehiculos[21] = m2;
+        vehiculos[22] = m3;
+        vehiculos[23] = m4;
+        vehiculos[24] = m5;
+        vehiculos[25] = m6;
+        vehiculos[26] = m7;
+        vehiculos[27] = m8;
+        vehiculos[28] = m9;
+        vehiculos[29] = m10;
+        vehiculos[30] = m11;
+        vehiculos[31] = m12;
+        vehiculos[32] = m13;
+        vehiculos[33] = m14;
+        vehiculos[34] = m15;
+        vehiculos[35] = m16;
+        vehiculos[36] = m17;
+        vehiculos[37] = m18;
+        vehiculos[38] = m19;
+        vehiculos[39] = m20;
+        vehiculos[40] = fu1;
+        vehiculos[41] = fu2;
+        vehiculos[42] = fu3;
+        vehiculos[43] = fu4;
+        vehiculos[44] = fu5;
+        vehiculos[45] = fu6;
+        vehiculos[46] = fu7;
+        vehiculos[47] = fu8;
+        vehiculos[48] = fu9;
+        vehiculos[49] = fu10;
+
+        System.out.println("EL IMPORTE TOTAL ES DE: "+ racaudacionTotal(vehiculos, horas) + "$");
+        System.out.println("QUIEN HA PAGADO MÁS: " + quienPagoMas(vehiculos, horas));
+        System.out.println("VEHICULOS CON IMPORTE SUPERIOR AL UMBRAL: " + contarPorEncimaDe(vehiculos, horas, 23));
+    
+        //E9
+        Inscribible[] actividades = new Inscribible[12];
+        Taller ta1 = new Taller("Taller de Comunicación", 200, 3,200);
+        Taller ta2 = new Taller("Taller de Robótica",          150, 2,          150);
+        Taller ta3 = new Taller("Taller de Fotografía",        180, 4,        180);
+        Excursion ex1 = new Excursion("Excurion a las Landas", 100, 47, 100);
+        Excursion ex2 = new Excursion("Excursión al Guggenheim",     30, 25,     30);
+        Excursion ex3 = new Excursion("Excursión a San Sebastián",   50, 60,   50);
+        ViajeFinCurso v1 = new ViajeFinCurso("Salou", 300, 500, 500);
+        ViajeFinCurso v2 = new ViajeFinCurso("París",         650, 120,         120);
+        ViajeFinCurso v3 = new ViajeFinCurso("Roma",          700, 95,          95);
+        Competicion co1 = new Competicion("Campeonato España", 20, 20);
+        Competicion co2 = new Competicion("Campeonato Euskadi",       15,       15);
+        Competicion co3 = new Competicion("Olimpiada Matemáticas",    30,    30);
+
+        actividades[0]  = ta1;
+        actividades[1]  = ta2;
+        actividades[2]  = ta3;
+        actividades[3]  = ex1;
+        actividades[4]  = ex2;
+        actividades[5]  = ex3;
+        actividades[6]  = v1;
+        actividades[7]  = v2;
+        actividades[8] = v3;
+        actividades[9] = co1;
+        actividades[10] = co2;
+        actividades[11] = co3;
+
+        Alumno a1 = new Alumno("22766404S", "Ekaitz Martin", 22, 1, true);
+        Alumno a2  = new Alumno("34512678A", "Laura González",   19, 2, false);
+        Alumno a3  = new Alumno("45678912B", "Carlos Fernández", 21, 1, true);
+        Alumno a4  = new Alumno("56789123C", "María López",      20, 3, false);
+        Alumno a5  = new Alumno("67891234D", "Iker Rodríguez",   23, 2, true);
+        Alumno a6  = new Alumno("78912345E", "Ana Martínez",     18, 1, false);
+        Alumno a7  = new Alumno("89123456F", "Jon Sánchez",      24, 3, true);
+        Alumno a8  = new Alumno("91234567G", "Lucía Pérez",      19, 2, false);
+        Alumno a9  = new Alumno("12345678H", "Mikel García",     22, 2, true);
+        Alumno a10 = new Alumno("23456789I", "Sara Jiménez",     20, 3, false);
+        Alumno a11 = new Alumno("34567890J", "Unai Ruiz",        21, 2, true);
+        Alumno a12 = new Alumno("45678901K", "Paula Díaz",       18, 2, false);
+
+        // ===== Array alumnos (posiciones 0-11) =====
+        Alumno[] alumnos = new Alumno[12];
+
+        alumnos[0]  = a1;
+        alumnos[1]  = a2;
+        alumnos[2]  = a3;
+        alumnos[3]  = a4;
+        alumnos[4]  = a5;
+        alumnos[5]  = a6;
+        alumnos[6]  = a7;
+        alumnos[7]  = a8;
+        alumnos[8]  = a9;
+        alumnos[9]  = a10;
+        alumnos[10] = a11;
+        alumnos[11] = a12;
+
+        //Alumno que NO puede participar en ningúna actividad
+        ex1.registrarPago(a12,ex1.precio());
+        System.out.println(ex1.estaPagado(a5));
+        System.out.println("NUMERO DE ACTIVIDADES A LAS QUE EL ALUMNO " + a12.getNombre() + " HA SIDO INSCRITO: " + inscribirAlumnoEnTodo(actividades, a12));
+        //Alumno que SI  puede participar en ningúna actividad
+        System.out.println("NUMERO DE ACTIVIDADES A LAS QUE EL ALUMNO " + a9.getNombre() + " HA SIDO INSCRITO: " + inscribirAlumnoEnTodo(actividades, a9));
+        System.out.println("NUMERO DE ACTIVIDADES A LAS QUE EL ALUMNO " + a5.getNombre() + " HA SIDO INSCRITO: " + inscribirAlumnoEnTodo(actividades, a5));
+        System.out.println("LA ACTIVIDAD MÁS SOLICITADA ES: " + masSolicitada(actividades).toString());
+        
+        /*System.out.println("NUMERO DE PLAZAS RESTANTES EN LAS COMPETICIONES: ");
+        System.out.println("ESPAÑA: " + co1.getPlazas());
+        System.out.println("EUSKADI: " + co2.getPlazas());
+        System.out.println("MATES: " + co3.getPlazas());*/
+        System.out.println("ALUMNOS MOROSOS: ");
+        pendientesPago(actividades, alumnos);
+    }
+    public static Alumno[] pendientesPago(Object[] actividades, Alumno[] alumnos) {
+        Alumno[] morosos = new Alumno[0];
+        int pos = 0;
+        for (int i = 0; i <= alumnos.length-1; i++) {
+            for (int j = 0; j <= actividades.length-1; j++) {
+                if (actividades[j] instanceof Pagablee) {
+                    Pagablee temporal = (Pagablee)actividades[j];
+                    if (temporal.estaPagado(alumnos[i]) == false) {
+                        morosos = Arrays.copyOf(morosos, morosos.length + 1);
+                        morosos[pos] = alumnos[i];
+                        pos ++;
+                        break;
+                    }
+                }
+            }
+        }
+        for (int i = 0; i <= morosos.length-1; i++) {
+            System.out.println(morosos[i]);
+        }
+        return alumnos;
+    }
+    public static Inscribible masSolicitada(Object[] actividades) {
+        Inscribible masSolicitado = (Inscribible)actividades[0];
+        for (int i = 0; i <= actividades.length-1; i ++) {
+            if (actividades[i] instanceof Inscribible) {
+                Inscribible temporal = (Inscribible) actividades[i];
+                // la función plazas diponibles la he usado como medidor de damanda, me devuelve la resta de el aforo y las plazas disponibles. AL ser una interfaz implementada por todas las clases, facilita mucho las cosas si meto esa lógica en esa función en vez de hacerlo en esta función del main
+                if ((temporal.plazasDisponibles()) > masSolicitado.plazasDisponibles()) {
+                    masSolicitado = temporal;
+                }
+            }
+        }
+        return masSolicitado;
+    }
+    /*public static double recaudacionTotal(Object[] actividades) {
+        double totalRecaudado = 0;
+        for (int i = 0; i <= actividades.length-1; i++) {
+            if (actividades[i] instanceof Excursion) {
+                Excursion temporal = (Excursion)actividades[i];
+                if(temporal.estaPagado(null)) {
+                    numInscripciones ++;
+                }
+            }
+            if (actividades[i] instanceof ViajeFinCurso) {
+                ViajeFinCurso temporal = (ViajeFinCurso)actividades[i];
+                if(temporal.inscribir(a)) {
+                    numInscripciones ++;
+                }
+                else {
+                    System.out.println(temporal.motivoRechazo(a));
+                }
+            }
+        }
+        return numInscripciones;
+    }*/
+    public static int inscribirAlumnoEnTodo(Object[] actividades, Alumno a) {
+        int numInscripciones = 0;
+        for (int i = 0; i <= actividades.length-1; i++) {
+            if (actividades[i] instanceof Taller) {
+                Taller temporal = (Taller)actividades[i];
+                if(temporal.inscribir(a)) {
+                    numInscripciones ++;
+                }
+                else {
+                    System.out.println(temporal.motivoRechazo(a));
+                }
+            }
+            if (actividades[i] instanceof Excursion) {
+                Excursion temporal = (Excursion)actividades[i];
+                if(temporal.inscribir(a)) {
+                    numInscripciones ++;
+                }
+            }
+            if (actividades[i] instanceof ViajeFinCurso) {
+                ViajeFinCurso temporal = (ViajeFinCurso)actividades[i];
+                if(temporal.inscribir(a)) {
+                    numInscripciones ++;
+                }
+                else {
+                    System.out.println(temporal.motivoRechazo(a));
+                }
+            }
+            if (actividades[i] instanceof Competicion) {
+                Competicion temporal = (Competicion)actividades[i];
+                if(temporal.inscribir(a)) {
+                    numInscripciones ++;
+                }
+                else {
+                    System.out.println(temporal.motivoRechazo(a));
+                }
+            }
+        }
+        return numInscripciones;
+    }
+    public static int contarPorEncimaDe(Pagable[] vehiculos, int[] horas, double umbral) {
+        int contador = 0;
+        for (int i = 0; i <= vehiculos.length-1; i++) {
+            if (vehiculos[i].importe(horas[i]) > umbral) {
+                contador ++;
+            }
+        }
+        return contador;
+    }
+    public static Pagable quienPagoMas(Pagable[] vehiculos, int[] horas) {
+        Pagable masPagado = vehiculos[0];
+        double importe = masPagado.importe(horas[0]);
+        for (int i = 0; i <= vehiculos.length-1; i++) {
+            if (vehiculos[i].importe(horas[i]) > importe) {
+                masPagado = vehiculos[i];
+                importe = masPagado.importe(horas[i]);
+            }
+        }
+        return masPagado;
+    }
+    public static double racaudacionTotal(Pagable[] vehiculos, int[] horas) {
+        double total = 0;
+        for (int i = 0; i <= vehiculos.length-1; i++) {
+            total += vehiculos[i].importe(horas[i]);
+        }
+        return total;
+    }
+    public static int contarUnidad(Medible[] registro, String unidad) {
+        int cont = 0;
+        for (int i = 0; i <= registro.length-1; i++) {
+            if (registro[i].unidad().equals(unidad)) {
+                cont ++;
+            }
+        }
+        return cont ++;
+    }
+    public static double mediaTiempoMin(Medible[] registro) {
+        double media = 0;
+        int cantidad = 0;
+        for (int i = 0; i <= registro.length-1; i++) {
+            if (registro[i] instanceof TiempoMin) {
+                media += registro[i].valor();
+                cantidad ++;
+            }
+        }
+        media /= cantidad;
+        return media;
+    }
+    public static Medible maximo(Medible[] registro) {
+        Medible mayor = registro[0];
+        for (int i = 0; i <= registro.length-1; i++) {
+            if(registro[i].valor() > mayor.valor()) {
+                mayor = registro[i];
+            }
+        }
+        return mayor;
     }
     public static void imprimirMenu(Comible[] animales) {
         for (int i = 0; i <= animales.length-1; i++) {

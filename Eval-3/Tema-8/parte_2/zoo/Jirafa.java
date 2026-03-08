@@ -19,6 +19,6 @@ public class Jirafa implements Comible {
     }
     @Override
     public String toString() {
-        return "Tipo de Animal: " + this.tipoAnimal + ", Tipo de Comida: " + this.tipoComida + ", Racion: " + this.racion;
+        return "Tipo de Animal: " + this.tipoAnimal + ", Tipo de Comida: " + this.tipoComida + ", Racion: " + this.racion + "gr";
     }
 }
