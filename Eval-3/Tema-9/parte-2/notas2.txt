@@ -1,0 +1,4 @@
+12345678S,Programacion,10,10,10
+12345678B,Bases de Datos,5,7,3
+12345678M,Entornos, 4,6,7
+12345678W,Lenguajes de Marcas,8,9,10

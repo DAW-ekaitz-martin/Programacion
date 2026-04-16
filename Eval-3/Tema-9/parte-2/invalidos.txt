@@ -1,0 +1,2 @@
+2,25dw.mateo.vargasarangoya.net,12345678. Motivo del fallo: El gmail no tiene @
+4,25dw.mateo.vargas@arangoya.net,12345678. Motivo del fallo: El numero de telefono no tiene 9 digitos
