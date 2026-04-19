@@ -1,0 +1,3 @@
+La linea 2 no contiene toda la información.
+3, mateogmail.com, 688637912=> El mail no contiene @
+4, walid@gmail.com, 74562341=> El número de teléfono no contiene 9 dígitos

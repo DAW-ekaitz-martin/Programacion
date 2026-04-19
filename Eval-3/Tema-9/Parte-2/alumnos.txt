@@ -1,0 +1,4 @@
+2;Ekaitz;Grupo1
+2;Gaizka;Grupo2
+3;Mateo;Grupo3
+4;Walid;Grupo4
