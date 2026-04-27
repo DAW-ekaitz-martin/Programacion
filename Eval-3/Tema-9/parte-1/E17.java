@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -10,17 +9,18 @@ public class E17 {
         String[] palabras = {"hola", "que", "tal"};
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("palabras.txt"));
-            for (int i = 0; i <= palabras.length-1; i++) {
+            for(int i = 0; i <= palabras.length-1; i++) {
                 bw.write(palabras[i]+"\n");
             }
             bw.close();
             BufferedReader br = new BufferedReader(new FileReader("palabras.txt"));
-            String fila;
-            while((fila = br.readLine()) != null) {
-                System.out.println(fila);
+            String linea;
+            while((linea = br.readLine()) != null) {
+                System.out.println(linea);
             }
-            br.close();
-        } catch (IOException e) {
+            bw.close();
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

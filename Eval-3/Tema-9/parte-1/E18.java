@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -8,22 +7,23 @@ import java.util.Arrays;
 
 public class E18 {
     public static void main(String[] args) {
-        String[] lineas = new String[0];
         try {
+            String[] lineas = new String[0];
             BufferedReader br = new BufferedReader(new FileReader("invertir.txt"));
             String linea;
-            int i = 0;
-            while((linea=br.readLine()) != null) {
+            while((linea = br.readLine())!= null) {
                 lineas = Arrays.copyOf(lineas, lineas.length+1);
-                lineas[i] = linea;
-                i++;
+                lineas[lineas.length-1] = linea;
             }
+            br.close();
             BufferedWriter bw = new BufferedWriter(new FileWriter("invertido.txt"));
-            for(int j = lineas.length-1; j >= 0; j--) {
-                bw.write(lineas[j]+"\n");
+            for(int i = lineas.length-1; i >= 0; i--) {
+                bw.write(lineas[i]+"\n");
             }
             bw.close();
-        } catch (IOException e) {
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
         }
+        
     }
 }

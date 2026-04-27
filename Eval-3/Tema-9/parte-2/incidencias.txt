@@ -1,1 +1,1 @@
-El id 1 no aparece en los dos archivos
+El id 1 no aparece en ambos archivos

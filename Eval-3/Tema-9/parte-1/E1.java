@@ -1,4 +1,3 @@
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,7 +7,7 @@ public class E1 {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter("datos.txt"));
             bw.close();
-        } catch (IOException e) {
+        } catch(IOException e) {
             System.out.println(e.getMessage());
         }
     }

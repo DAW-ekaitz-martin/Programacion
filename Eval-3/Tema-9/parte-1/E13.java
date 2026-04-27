@@ -7,34 +7,26 @@ import java.io.IOException;
 public class E13 {
     public static void main(String[] args) {
         try {
+            int cont = 0;
             BufferedWriter bw = new BufferedWriter(new FileWriter("texto.txt"));
-            bw.write("programación, programación programación, programación");
-            bw.write("\n");
-            bw.write("Programación\n");
-            bw.write("programación\n");
+            bw.write("Me encanta la programación, no solo por programar sino tambien por la programación\n");
             bw.close();
             BufferedReader br = new BufferedReader(new FileReader("texto.txt"));
             String linea;
-            int cont= 0;
-            boolean contiene = false;
-            while((linea = br.readLine())!= null) {
-                while (linea.contains("programación")) {
-                    int pos = linea.indexOf("programación") + 11;
-                    linea = linea.substring(pos, linea.length());
-                    contiene = true;
+            while((linea = br.readLine()) != null) {
+                while(linea.contains("programación")) {
                     cont ++;
+                    int indice = linea.indexOf("programación") + 11; //Para coger la siguiente posición a la que acaba la palabra programación
+                    linea = linea.substring(indice, linea.length());
+
                 }
             }
             br.close();
-            if(contiene) {
-                System.out.println("El archivo contiene la palabra programación " + cont + " veces");
-            }
-            else {
-                System.out.println("El archivo NO contiene la palabra progrmación");
-            }
-        } catch (IOException e) {
+            System.out.println("La palabra programación se repite " + cont + " veces");
+        }
+         catch(IOException e) {
             System.out.println(e.getMessage());
         }
     }
-    
 }
+

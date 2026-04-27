@@ -1,4 +1,4 @@
-1, Ekaitz, Grupo1, 10.0, APTO
-2, Brandon, Grupo2, 4.333333333333333, NO APTO
-3, Mateo, Grupo3, 8.0, APTO
-4, Walid, Grupo4, 8.0, APTO
+Ekaitz;Grupo1;5.333333333333333,APTO
+Gaizka;Grupo2;5.333333333333333,APTO
+Mateo;Grupo3;4.666666666666667, NO APTO
+Walid;Grupo4;8.5,APTO

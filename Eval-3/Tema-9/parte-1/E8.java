@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,7 +13,7 @@ public class E8 {
             }
             br.close();
             System.out.println("El archivo tiene " + cont + " lineas");
-        } catch (IOException e) {
+        } catch(IOException e) {
             System.out.println(e.getMessage());
         }
     }

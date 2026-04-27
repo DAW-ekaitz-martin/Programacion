@@ -1,4 +1,11 @@
-12345678S,Programacion,10,10,10
-12345678B,Bases de Datos,5,7,3
-12345678M,Entornos, 4,6,7
-12345678W,Lenguajes de Marcas,8,9,10
+22766404E,Programación,10
+22766404E,Lenguajes,7.5
+22766404E,Entornos,7.5
+22766404M,Programación,10
+22766404M,Lenguajes,7
+22766404M,Entornos,7
+22766404G,Programacion,9
+22766404g,Lenguajes,7
+22766404G,Entornos,7
+22766404W,Programacion,9
+22766404W,Lenguajes, 7.5

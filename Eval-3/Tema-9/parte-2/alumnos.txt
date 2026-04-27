@@ -1,4 +1,4 @@
-1,Ekaitz,Grupo1
-2,Brandon,Grupo2
-3,Mateo,Grupo3
-4,Walid,Grupo4
+2;Ekaitz;Grupo1
+2;Gaizka;Grupo2
+3;Mateo;Grupo3
+4;Walid;Grupo4

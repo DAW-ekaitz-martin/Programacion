@@ -1,23 +1,33 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class E20 {
     public static void main(String[] args) {
         try {
-            BufferedReader br1 = new BufferedReader(new FileReader("diferencias1.txt"));
-            BufferedReader br2 = new BufferedReader(new FileReader("diferencias2.txt"));
-            String linea1;
+            boolean iguales = true;
+            BufferedReader br = new BufferedReader(new FileReader("comparacion1.txt"));
+            BufferedReader br2 = new BufferedReader(new FileReader("comparacion2.txt"));
+            String linea;
             String linea2;
-            int i = 0;
-            while((linea1=br1.readLine()) != null || (linea2=br2.readLine()) != null) {
-                if (!linea1.equals(linea2=br2.readLine())) {
-                    System.out.println("La linea " + i + " de cada archivo son diferentes" );
+            while((linea = br.readLine())!= null && (linea2 = br2.readLine())!= null)  {
+                if(!linea.equals(linea2)) {
+                    iguales = false;
                 }
-                i++;
             }
-        } catch (IOException e) {
+            br.close();
+            if(iguales) {
+                System.out.println("Los archivos son iguales");
+            }
+            else {
+                System.out.println("Los archivos son distintos");
+            }
+        } catch(IOException e) {
             System.out.println(e.getMessage());
         }
+        
     }
 }

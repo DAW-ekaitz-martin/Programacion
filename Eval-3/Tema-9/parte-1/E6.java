@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -12,7 +11,8 @@ public class E6 {
                 System.out.println(linea);
             }
             br.close();
-        } catch (IOException e) {
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 }

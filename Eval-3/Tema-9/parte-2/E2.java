@@ -1,74 +1,80 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class E2 {
+    
     public static void main(String[] args) {
-        String[][] alumnos = new String[4][];
-        String[][] notas = new String[4][];
+        int[] ids = new int[0];
+        String[] nombres = new String[0];
+        String[] grupos = new String[0];
         try {
             BufferedReader br = new BufferedReader(new FileReader("alumnos.txt"));
-            BufferedReader br2 = new BufferedReader(new FileReader("notas.txt"));
             String linea;
-            String linea2;
             int i = 0;
-            while((linea=br.readLine()) != null) {
-                alumnos[i] = linea.split(",");
-                i++;
-            }
-            i = 0;
-            while((linea2=br2.readLine()) != null) {
-                notas[i] = linea2.split(",");
+            while((linea = br.readLine()) != null) {
+                String[] temporal = linea.split(";");
+                ids = Arrays.copyOf(ids, ids.length+1);
+                ids[i] = Integer.parseInt(temporal[0]);
+
+                nombres = Arrays.copyOf(nombres, nombres.length+1);
+                nombres[i] = temporal[1];
+
+                grupos = Arrays.copyOf(grupos, grupos.length+1);
+                grupos[i] = temporal[2];
                 i++;
             }
             br.close();
-            br2.close();
-            BufferedWriter bwIncidencias = new BufferedWriter(new FileWriter("incidencias.txt"));
-            for(int j = 0; j <= alumnos.length-1; j++) {
-                boolean aparece = false;
-                for(int k = 0; k <= notas.length-1; k++) {
-                    if (alumnos[j][0].equals(notas[k][0])) {
-                        aparece = true;
+            String[][] notas = new String[ids.length][2];
+            BufferedReader br2 = new BufferedReader(new FileReader("notas.txt"));
+            BufferedWriter bw1 = new BufferedWriter(new FileWriter("incidencias.txt"));
+            String linea2;
+            while((linea2 = br2.readLine()) != null) {
+                String[] temporal = linea2.split(";");
+                boolean idExistente = false;
+                for(int j = 0; j <= ids.length-1; j++) {
+                    double media = 0;
+                    boolean apto = true;
+                    int num_notas = 0;
+                    if(ids[j] == Integer.parseInt(temporal[0])) {//cojo el id del array ids porque en el array de notas no lo tengo
+                        idExistente = true;
+                        for(int k = 1; k <= temporal.length-1; k ++) { //resto dos porque descuento temporal[0] que equivale al id
+                            if(Double.parseDouble(temporal[k]) < 3) {
+                                apto = false;
+                            }
+                            media += Double.parseDouble(temporal[k]);
+                            num_notas ++;
+                        }
+                        media /= num_notas;
+                        if(media < 5) {
+                            apto = false;
+                        }
+                        notas[j][0] = String.valueOf(media);
+                        notas[j][1] = String.valueOf(apto);
                     }
                 }
-                if(!aparece)
-                    bwIncidencias.write("El id " + alumnos[j][0] + " no aparece en los dos archivos");
+                
+                //Si no sale del bucle con el boolean en true es que no se ha encontrado el id
+                if(!idExistente) {
+                    bw1.write("El id " + temporal[0] + " no aparece en ambos archivos");
+                }
             }
-            bwIncidencias.close();
-            BufferedWriter bw = new BufferedWriter(new FileWriter("informe.txt"));
-            for(int j = 0; j <= notas.length-1; j++) {
-                for(int k = 0; k <= alumnos[0].length-1; k++) {
-                    bw.write(alumnos[j][k]);
-                    bw.write(", ");
-                }
-                double mediaNotas = 0;
-                int cant_notas = 0;
-                boolean apto = true;
-                for(int l = 1; l <= notas[0].length-1; l++) {
-                    if(Integer.parseInt(notas[j][l]) < 3) {
-                        apto = false;
-                    }
-                    mediaNotas += Integer.parseInt(notas[j][l]);
-                    cant_notas ++;
-                }
-                mediaNotas/=cant_notas;
-                if(mediaNotas <= 5) {
-                    apto = false;
-                }
-                bw.write(String.valueOf(mediaNotas));
-                bw.write(", ");
-                if(apto) {
-                    bw.write("APTO");
+            bw1.close();
+            br2.close();
+            BufferedWriter bw2 = new BufferedWriter(new FileWriter("informe.txt"));
+            for(int j = 0; j <= nombres.length-1; j++) {
+                bw2.write(nombres[j]+";"+grupos[j]+";"+notas[j][0]+",");
+                if(notas[j][1].equals("true")) {
+                    bw2.write("APTO\n");
                 }
                 else {
-                    bw.write("NO APTO");
+                    bw2.write(" NO APTO\n");
                 }
-                bw.write("\n");
             }
-            bw.close();
+            bw2.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }

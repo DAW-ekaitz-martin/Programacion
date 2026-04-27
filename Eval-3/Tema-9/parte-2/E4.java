@@ -7,22 +7,33 @@ public class E4 {
         try {
             BufferedReader br = new BufferedReader(new FileReader("ventas.txt"));
             String linea;
-            int i = 0;
-            double importeTotal = 0;
+            double total = 0;
             while((linea = br.readLine())!= null) {
-                double importeLinea = 0;
-                String[] lineaSpliteada = linea.split(";");
-                importeLinea = Double.parseDouble(lineaSpliteada[1].replace(',', '.'))* Double.parseDouble(lineaSpliteada[2].replace(',', '.'));
-                importeTotal += importeLinea;
-                String lineaFormateda = String.format("%.2f", importeLinea);
-                System.out.println(lineaSpliteada[0] + ", " + lineaSpliteada[1] + " unidades, Precio unitario: " + lineaSpliteada[2] + " Precio total: " + lineaFormateda);
-                i++;
+                String nombre;
+                int unidades = -1;
+                double precioUni = -1;
+                String[] temporal = linea.split(";");
+                if(temporal.length == 3) {
+                    nombre = temporal[0];
+                    try {
+                        unidades = Integer.parseInt(temporal[1]);
+                        if(temporal[2].contains(",")) {
+                            temporal[2] = temporal[2].replace(",", ".");
+                        }
+                        precioUni = Double.parseDouble(temporal[2]);
+                    } catch(NumberFormatException e) {}
+                    if (unidades != -1 && precioUni != -1) {
+                        double precioLinea = unidades*precioUni;
+                        total += precioLinea;
+                        System.out.println("Producto: " + nombre + " " + unidades + " unidades " + String.format("%.2f", precioLinea));
+                    }
+                }
             }
-            String importeTotalFormateado = String.format("%.2f", importeTotal);
-            System.out.println("Importe total: " + importeTotalFormateado);
+            br.close();
+            System.out.println("PRECIO TOTAL: " + String.format("%.2f",total));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+        
     }
-    
 }

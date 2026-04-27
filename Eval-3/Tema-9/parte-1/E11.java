@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -14,9 +13,9 @@ public class E11 {
             while((linea = br.readLine()) != null) {
                 bw.write(linea+"\n");
             }
-            bw.close();
             br.close();
-        } catch (IOException e) {
+            bw.close();
+        } catch(IOException e) {
             System.out.println(e.getMessage());
         }
     }
