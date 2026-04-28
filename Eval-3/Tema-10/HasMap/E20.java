@@ -49,6 +49,7 @@ public class E20 {
                 return -1;
             }
         });
+        //Es muy dificil sacer la key a partir del value, ya que si el value se repite(en este caso la media) podría sacer una key que no concordase con la que verdaderamente le corresponde.
         System.out.println("RANKING DE MEDIAS");
         for(Map.Entry<String, Double> en : medias.entrySet()) {
             for(int i = 0; i < mediaList.size(); i++) {
